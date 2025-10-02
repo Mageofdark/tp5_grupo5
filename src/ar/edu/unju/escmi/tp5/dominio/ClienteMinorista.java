@@ -27,7 +27,7 @@ public class ClienteMinorista extends Cliente {
 
         factura.calcularTotal();
 
-        if (PAMI=true) {
+        if (PAMI == true) {
             double descuento = factura.getTotal() * 0.10;
             factura.setTotal(factura.getTotal() - descuento);
         }

@@ -9,7 +9,7 @@ public class DetalleFactura {
     public DetalleFactura(int cantidad, Producto producto, float precioUnitario2) {
         this.cantidad = cantidad;
         this.producto = producto;
-        this.precioUnitario = producto.getPrecioUnitario();
+        this.precioUnitario = precioUnitario2;
         this.importe = cantidad * precioUnitario;
     }
 

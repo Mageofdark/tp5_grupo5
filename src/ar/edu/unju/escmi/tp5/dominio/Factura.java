@@ -44,11 +44,9 @@ public class Factura {
     }
 
     public String mostrarFactura(){
-        return "Factura N°: " + numeroFactura +
+        return "\nFactura N°: " + numeroFactura +
                "\nFecha: " + fecha +
-               "\nCliente: " + cliente.getNombre() + " " + cliente.getApellido() +
-               "Total: " + total;
+               "\nCliente: " + cliente.getApellido() + " " + cliente.getNombre() +
+               "\nTotal: " + total;
     }
 }
-
-
