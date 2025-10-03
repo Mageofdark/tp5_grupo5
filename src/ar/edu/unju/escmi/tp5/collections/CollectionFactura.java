@@ -24,4 +24,13 @@ public class CollectionFactura {
     public static List<EncabezadoFactura> getFacturas() {
         return facturas;
     }
+
+    public static double calcularTotalVentas() {
+        double total = 0;
+        for (EncabezadoFactura f : facturas) {
+            total += f.getTotal();
+        }
+        return total;
+    }
+    
 }
