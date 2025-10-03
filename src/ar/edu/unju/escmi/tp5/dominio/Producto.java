@@ -21,6 +21,17 @@ public class Producto {
             } else { System.out.println("No queda Stock del producto " + nombreProducto);
             }
     }
+
+    public double calcularDescuento(int descuento) {
+        if (descuento == 25) {
+            return precioUnitario * 0.75;
+        } else if (descuento == 30) {
+            return precioUnitario * 0.70;
+        } else {
+            System.out.println("Descuento no valido. No se aplicara descuento.");
+            return precioUnitario;
+        }
+    }
              
     public int getCodigoProducto() { 
         return codigoProducto;
