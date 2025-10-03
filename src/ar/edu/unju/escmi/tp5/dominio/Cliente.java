@@ -2,20 +2,23 @@ package ar.edu.unju.escmi.tp5.dominio;
 
 import java.util.List;
 
-public class Cliente {
+public abstract class Cliente {
     private String nombre;
     private String apellido;
     private String direccion;
+    private int dni;
 
-    public Cliente(String nombre, String apellido, String direccion) {
+    public Cliente(String nombre, String apellido, String direccion, int dni) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
+        this.dni = dni;
     }
 
-    public Factura comprar(List<Producto> productos, List<Integer> cantidades){
-        return null;};
+     // metodo abstracto para cada subclase implementa su lógica de compra
+    public abstract Factura comprar(List<Producto> productos, List<Integer> cantidades);
 
+    // los getters y setters
     public String getNombre() {
         return nombre;
     }
@@ -38,5 +41,13 @@ public class Cliente {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public int getDni() {   
+        return dni;
+    }
+
+    public void setDni(int dni) {  
+        this.dni = dni;
     }
 }

@@ -5,8 +5,8 @@ import java.util.List;
 public class ClienteMayorista extends Cliente {
     private int codigoCliente;
 
-    public ClienteMayorista(String nombre, String apellido, String direccion, int codigoCliente) {
-        super(nombre, apellido, direccion);
+    public ClienteMayorista(String nombre, String apellido, String direccion, int dni, int codigoCliente) {
+        super(nombre, apellido, direccion, dni);
         this.codigoCliente = codigoCliente;
     }
     public int getCodigoCliente() {

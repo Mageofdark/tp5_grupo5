@@ -7,7 +7,7 @@ public class ClienteMinorista extends Cliente {
     private boolean PAMI;
 
     public ClienteMinorista(String nombre, String apellido, String direccion, int dni, boolean PAMI) {
-        super(nombre, apellido, direccion);
+        super(nombre, apellido, direccion, dni);
         this.dni = dni;
         this.PAMI = PAMI;
     }

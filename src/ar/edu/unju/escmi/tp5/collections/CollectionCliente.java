@@ -12,10 +12,10 @@ public class CollectionCliente {
 
     // Precarga de clientes
     static {
-        clientes.add(new ClienteMayorista("Matias", "Velazquez", "Ciudad de Nieva 000", 12345678, 1001));
-        clientes.add(new ClienteMayorista("Enrique", "Real", "Belgrano 111", 87654321, 1002));
-        clientes.add(new ClienteMinorista("Ignacio", "Huanca", "San Martín 222", 33445566, true));
-        clientes.add(new ClienteMinorista("Lucas", "Figueroa", "Alto Comedero 333", 11223344, false));
+        clientes.add(new ClienteMayorista("Matias", "Velazquez", "Ciudad de Nieva 000", 33123456, 1001));
+        clientes.add(new ClienteMayorista("Enrique", "Real", "Belgrano 111", 44123456, 1002));
+        clientes.add(new ClienteMinorista("Ignacio", "Huanca", "San Martín 222", 55123456, true));
+        clientes.add(new ClienteMinorista("Lucas", "Figueroa", "Alto Comedero 333", 22123456, false));
     }
 
     public static void agregarCliente(Cliente cliente) {
