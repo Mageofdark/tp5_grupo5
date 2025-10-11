@@ -3,15 +3,14 @@ package ar.edu.unju.escmi.tp5.dominio;
 public class DetalleFactura {
     private int cantidad;
     private Producto producto;
-    private double precioUnitario;
     private double importe;
 
-    public DetalleFactura(int cantidad, Producto producto, double precioUnitario) {
+    public DetalleFactura(int cantidad, Producto producto) {
         this.cantidad = cantidad;
         this.producto = producto;
-        this.precioUnitario = precioUnitario;
-        this.importe = cantidad * precioUnitario;
+        this.importe = cantidad * producto.getPrecioUnitario();
     }
+
 
     public int getCantidad() {
         return cantidad;
@@ -21,9 +20,6 @@ public class DetalleFactura {
         return producto;
     }
 
-    public double getPrecioUnitario() {
-        return precioUnitario;
-    }
 
     public double getImporte() {
         return importe;
@@ -34,7 +30,6 @@ public class DetalleFactura {
     public String toString() {
         return "Producto: " + producto.getNombreProducto() +
                " | Cantidad: " + cantidad +
-               " | Precio Unitario: " + precioUnitario +
                " | Importe: " + importe;
     }
 }

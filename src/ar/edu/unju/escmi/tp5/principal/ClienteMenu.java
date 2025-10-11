@@ -1,9 +1,17 @@
 package ar.edu.unju.escmi.tp5.principal;
 
-import ar.edu.unju.escmi.tp5.collections.CollectionFactura;
 
 public class ClienteMenu {
     public static void mostrarMenu(java.util.Scanner scanner) {
+        System.out.print("Ingrese su DNI para continuar: ");
+        int dni = scanner.nextInt();
+        ar.edu.unju.escmi.tp5.dominio.Cliente cliente = ar.edu.unju.escmi.tp5.collections.CollectionCliente.buscarCliente(dni);
+        if (cliente == null) {
+            System.out.println("Cliente no encontrado. Volviendo al menu principal.");
+            return;
+        }
+        System.out.println("Bienvenido " + cliente.getNombre() + " " + cliente.getApellido());
+
         int opcion;
         do {
             System.out.println("===== MENU CLIENTE =====");
@@ -14,15 +22,11 @@ public class ClienteMenu {
 
             switch (opcion) {
                 case 1:
-                    // Llamar al metodo para Buscar Factura
                     System.out.println("Ingrese numero de factura a buscar: ");
                     int numeroFactura = scanner.nextInt();
-                   CollectionFactura.buscarFactura(numeroFactura);
-                    // Simulacion de busqueda
                     System.out.println("Buscando factura numero: " + numeroFactura);
-
-                    if (CollectionFactura.buscarFactura(numeroFactura) != null) {
-                        System.out.println("Factura encontrada: " + CollectionFactura.buscarFactura(numeroFactura));
+                    if (ar.edu.unju.escmi.tp5.collections.CollectionFactura.buscarFactura(numeroFactura) != null) {
+                        System.out.println("Factura encontrada: " + ar.edu.unju.escmi.tp5.collections.CollectionFactura.buscarFactura(numeroFactura));
                     } else {
                         System.out.println("Factura no encontrada.");
                     }

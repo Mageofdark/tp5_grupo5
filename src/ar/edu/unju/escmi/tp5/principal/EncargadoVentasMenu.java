@@ -1,10 +1,17 @@
 package ar.edu.unju.escmi.tp5.principal;
 
-import ar.edu.unju.escmi.tp5.collections.CollectionProducto;
-import ar.edu.unju.escmi.tp5.collections.CollectionFactura;
 
 public class EncargadoVentasMenu {
     public static void mostrarMenu(java.util.Scanner scanner) {
+        System.out.print("Ingrese ID del encargado de ventas: ");
+        int idEmpleado = scanner.nextInt();
+        ar.edu.unju.escmi.tp5.dominio.Empleado empleado = ar.edu.unju.escmi.tp5.collections.CollectionEmpleado.buscarEmpleado(idEmpleado);
+        if (empleado == null || !(empleado instanceof ar.edu.unju.escmi.tp5.dominio.EncargadoVentas)) {
+            System.out.println("Empleado no encontrado o no es Encargado de Ventas. Acceso denegado.");
+            return;
+        }
+
+        System.out.println("Encargado de ventas autenticado: " + empleado.getNombre() + " " + empleado.getApellido());
         int opcion;
         do {
             System.out.println("===== MENU ENCARGADO DE VENTAS =====");
@@ -17,27 +24,22 @@ public class EncargadoVentasMenu {
 
             switch (opcion) {
                 case 1:
-                    // Llamar al metodo para Mostrar las ventas
                     System.out.println("Opcion de Mostrar las ventas seleccionada.");
-                    CollectionFactura.getFacturas();
-                    System.out.println("Las ventas realizadas son: " + CollectionFactura.getFacturas());
+                    System.out.println("Las ventas realizadas son: " + ar.edu.unju.escmi.tp5.collections.CollectionFactura.getFacturas());
                     break;
 
                 case 2:
-                    // Llamar al metodo para Mostrar el total de todas las ventas
                     System.out.println("Opcion de Mostrar el total de todas las ventas seleccionada.");
-                    CollectionFactura.calcularTotalVentas();
-                    System.out.println("El total de todas las ventas es: $" + CollectionFactura.calcularTotalVentas());
+                    System.out.println("El total de todas las ventas es: $" + ar.edu.unju.escmi.tp5.collections.CollectionFactura.calcularTotalVentas());
                     break;
 
                 case 3:
-                    // Llamar al metodo para Verificcar stock de un producto
                     System.out.println("Opcion de Verificcar stock de un producto seleccionada.");
-                    System.out.println("Ingrese codigo del producto a verificar: ");
+                    System.out.print("Ingrese codigo del producto a verificar: ");
                     int codigoProducto = scanner.nextInt();
-                    CollectionProducto.buscarProducto(codigoProducto);
-                    if (CollectionProducto.buscarProducto(codigoProducto) != null) {
-                        System.out.println("Producto encontrado: " + CollectionProducto.buscarProducto(codigoProducto));
+                    ar.edu.unju.escmi.tp5.dominio.Producto p = ar.edu.unju.escmi.tp5.collections.CollectionProducto.buscarProducto(codigoProducto);
+                    if (p != null) {
+                        System.out.println("Producto encontrado: " + p.getNombreProducto() + " | Stock: " + p.getStock());
                     } else {
                         System.out.println("Producto no encontrado.");
                     }

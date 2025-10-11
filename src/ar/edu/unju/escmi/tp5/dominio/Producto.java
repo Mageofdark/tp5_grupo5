@@ -4,6 +4,7 @@ public class Producto {
     private int codigoProducto;
      private String nombreProducto; 
      private float precioUnitario; 
+    private int descuento; 
      private int stock; 
 
     public Producto(int codigoProducto, String nombreProducto, float precioUnitario, int stock) { 
@@ -11,6 +12,7 @@ public class Producto {
         this.nombreProducto = nombreProducto;
         this.precioUnitario = precioUnitario; 
         this.stock = stock;
+        this.descuento = 0;
 
     } 
         
@@ -35,6 +37,14 @@ public class Producto {
              
     public int getCodigoProducto() { 
         return codigoProducto;
+    }
+
+    public int getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(int descuento) {
+        this.descuento = descuento;
     }
              
     public String getNombreProducto() {

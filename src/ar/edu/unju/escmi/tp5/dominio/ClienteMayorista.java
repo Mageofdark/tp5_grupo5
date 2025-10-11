@@ -17,6 +17,7 @@ public class ClienteMayorista extends Cliente {
         this.codigoCliente = codigoCliente;
     }
 
+    @Override
     public Factura comprar(List<Producto> productos, List<Integer> cantidades) {
         Factura factura = new Factura(this);
         for (int i = 0; i < productos.size(); i++) {
@@ -29,11 +30,17 @@ public class ClienteMayorista extends Cliente {
                 precioUnitario = precioUnitario / 2;
             }
 
-            DetalleFactura detalle = new DetalleFactura(cant, p, precioUnitario);
+            DetalleFactura detalle = new DetalleFactura(cant, p);
             factura.agregarDetalle(detalle);
             p.ProductosComprados(cant);
         }
         factura.calcularTotal();
         return factura;
     } 
+
+    @Override
+    public void mostrarDatos() {
+        super.mostrarDatos();
+        System.out.println("Codigo cliente mayorista: " + codigoCliente);
+    }
 }

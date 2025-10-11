@@ -1,11 +1,10 @@
 package ar.edu.unju.escmi.tp5.collections;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import ar.edu.unju.escmi.tp5.dominio.AgenteAdministrativo;
 import ar.edu.unju.escmi.tp5.dominio.Empleado;
 import ar.edu.unju.escmi.tp5.dominio.EncargadoVentas;
-import ar.edu.unju.escmi.tp5.dominio.AgenteAdministrativo;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CollectionEmpleado {
     public static List<Empleado> empleados = new ArrayList<>();
