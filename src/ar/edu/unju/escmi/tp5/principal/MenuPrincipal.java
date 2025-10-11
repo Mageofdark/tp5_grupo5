@@ -40,7 +40,7 @@ public class MenuPrincipal {
                     break;
                 
                 default:
-                    System.out.println("Opcion invalida. Intente nuevamente.");
+                    System.out.println("Opcion invalida. Intente nuevamente. Por favor.");
                     break;
             }
         } while (opcion != 4);
