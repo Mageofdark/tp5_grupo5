@@ -4,38 +4,40 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unju.escmi.tp5.collections.CollectionFactura;
+
 public class EncabezadoFactura {
     private int numero;
-    private Cliente cliente;
     private LocalDate fecha;
+    private Cliente cliente;
     private List<DetalleFactura> detalles;
     private double total;
 
-    // el constructor
-    public EncabezadoFactura(int numero, Cliente cliente) {
-        this.numero = numero;
-        this.cliente = cliente;
+    // Constructor
+    public EncabezadoFactura(Cliente cliente) {
+        this.numero = CollectionFactura.facturas.size();
         this.fecha = LocalDate.now();
+        this.cliente = cliente;
         this.detalles = new ArrayList<>();
         this.total = 0.0;
     }
 
-    // el metodo para agregar detalles a la factura
-    public void agregarDetalle(DetalleFactura detalle) {
-        detalles.add(detalle);
+    // Agregar detalle y recalcular total
+    public void agregarDetalles(DetalleFactura detalle) {
+        this.detalles.add(detalle);
         calcularTotal();
     }
 
-    // el metodo para calcular total de la factura
+    // Calcular total
     public void calcularTotal() {
         double suma = 0;
-        for (DetalleFactura d : detalles) {
-            suma += d.getImporte();
+        for (DetalleFactura detalle : detalles) {
+            suma += detalle.getImporte();
         }
         this.total = suma;
     }
 
-    // los getters y setters
+    // Getters y setters
     public int getNumero() {
         return numero;
     }
@@ -56,11 +58,12 @@ public class EncabezadoFactura {
         return total;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setTotal(double total) {
+        this.total = total;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    // Método futuro (placeholder)
+    public static EncabezadoFactura buscarFactura(int numero) {
+        throw new UnsupportedOperationException("Método 'buscarFactura' no implementado");
     }
 }

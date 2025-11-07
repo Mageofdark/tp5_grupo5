@@ -16,7 +16,7 @@ public class Producto {
 
     } 
         
-    public void ProductosComprados(int cantidad) {
+    public void productosComprados(int cantidad) {
         if (cantidad <= stock) {
             stock -= cantidad; 
             System.out.println("Se han vendido " + cantidad + " unidades del producto " + nombreProducto); 
