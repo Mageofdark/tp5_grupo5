@@ -3,10 +3,10 @@ package ar.edu.unju.escmi.tp5.dominio;
 import java.util.List;
 
 public abstract class Cliente {
-    private String nombre;
-    private String apellido;
-    private String direccion;
-    private int dni;
+    protected String nombre;
+    protected String apellido;
+    protected String direccion;
+    protected int dni;
 
     public Cliente(String nombre, String apellido, String direccion, int dni) {
         this.nombre = nombre;
@@ -19,14 +19,10 @@ public abstract class Cliente {
     public abstract Factura comprar(List<Producto> productos, List<Integer> cantidades);
 
     // Buscar factura por numero (delegar a CollectionFactura)
-    public ar.edu.unju.escmi.tp5.dominio.EncabezadoFactura buscarFactura(int numero) {
-        return ar.edu.unju.escmi.tp5.collections.CollectionFactura.buscarFactura(numero);
-    }
+    public abstract ar.edu.unju.escmi.tp5.dominio.EncabezadoFactura buscarFactura(int numero);
 
     // Mostrar datos basicos del cliente
-    public void mostrarDatos() {
-        System.out.println("Cliente: " + nombre + " " + apellido + " | DNI: " + dni + " | Direccion: " + direccion);
-    }
+    public abstract void mostrarDatos();
 
     // los getters y setters
     public String getNombre() {

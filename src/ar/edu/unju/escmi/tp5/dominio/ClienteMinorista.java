@@ -3,28 +3,28 @@ package ar.edu.unju.escmi.tp5.dominio;
 import java.util.List;
 
 public class ClienteMinorista extends Cliente {
-    private boolean PAMI;
+    private boolean tienePAMI;
 
-    public ClienteMinorista(String nombre, String apellido, String direccion, int dni, boolean PAMI) {
+    public ClienteMinorista(String nombre, String apellido, String direccion, int dni, boolean tienePAMI) {
         super(nombre, apellido, direccion, dni);
-        this.PAMI = PAMI;
+        this.tienePAMI = tienePAMI;
     }
     
     @Override
-    public Factura comprar(List<Producto> productos, List<Integer> cantidades) {
-        Factura factura = new Factura(this);
+    public EncabezadoFactura comprar(List<Producto> productos, List<Integer> cantidades) {
+        EncabezadoFactura factura = new EncabezadoFactura(this);
         for (int i = 0; i < productos.size(); i++) {
             Producto p = productos.get(i);
             int cant = cantidades.get(i);
 
             DetalleFactura detalle = new DetalleFactura(cant, p);
-            factura.agregarDetalle(detalle);
-            p.ProductosComprados(cant);
+            factura.agregarDetalles(detalle);
+            p.productosComprados(cant);
         }
 
         factura.calcularTotal();
 
-        if (PAMI == true) {
+        if (tienePAMI == true) {
             double descuento = factura.getTotal() * 0.10;
             factura.setTotal(factura.getTotal() - descuento);
         }
@@ -32,19 +32,21 @@ public class ClienteMinorista extends Cliente {
         return factura;
     }
 
-
-
-    public boolean tienePAMI() {
-        return PAMI;
+    @Override
+    public ar.edu.unju.escmi.tp5.dominio.EncabezadoFactura buscarFactura(int numero) {
+        return ar.edu.unju.escmi.tp5.dominio.EncabezadoFactura.buscarFactura(numero);
     }
 
-    public void setPAMI(boolean PAMI) {
-        this.PAMI = PAMI;
+    public boolean getTienePAMI() {
+        return tienePAMI;
+    }
+
+    public void setTienePAMI(boolean tienePAMI) {
+        this.tienePAMI = tienePAMI;
     }
 
     @Override
     public void mostrarDatos() {
-        super.mostrarDatos();
-        System.out.println("PAMI: " + PAMI);
+        System.out.println("Cliente: " + nombre + " " + apellido + " | DNI: " + dni + " | Direccion: " + direccion + "PAMI: " + tienePAMI);
     }
 }

@@ -1,10 +1,10 @@
 package ar.edu.unju.escmi.tp5.dominio;
 
 public abstract class Empleado {
-    private String nombre;
-    private String apellido;
-    private int dni;
-    private int idEmpleado;
+    protected String nombre;
+    protected String apellido;
+    protected int dni;
+    protected int idEmpleado;
 
     public Empleado(String nombre, String apellido, int dni, int idEmpleado) {
         this.nombre = nombre;
