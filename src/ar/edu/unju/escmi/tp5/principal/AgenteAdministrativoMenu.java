@@ -118,38 +118,10 @@ public class AgenteAdministrativoMenu {
 
                     //confirmacion de la venta
                     System.out.println("Venta realizada exitosamente por el empleado: " + vendedor.getNombre());
+                    System.out.println("Factura N°: " + factura.getNumero());
                     System.out.println("Detalle de la venta:");
                     System.out.println(detalle.toString());
                     System.out.println("Total de la factura: " + factura.getTotal());
-                    /* System.out.println("Ingrese codigo del producto a vender: ");
-                    int codigoVenta = scanner.nextInt();
-                    if (codigoVenta < 1 || codigoVenta > ar.edu.unju.escmi.tp5.collections.CollectionProducto.getProductos().size()) {
-                        System.out.println("Codigo de producto invalido.");
-                    } else {
-                        ar.edu.unju.escmi.tp5.dominio.Producto productoVendido = ar.edu.unju.escmi.tp5.collections.CollectionProducto.buscarProducto(codigoVenta);
-                        System.out.print("Ingrese cantidad a vender: ");
-                        int cantidadVenta = scanner.nextInt();
-                        if (cantidadVenta > productoVendido.getStock()) {
-                            System.out.println("No hay suficiente stock para realizar la venta.");
-                        } else if (cantidadVenta <= 0){
-                            System.out.println("Cantidad invalida para la venta.");
-                        } else {
-
-                            //crear detalle de la factura
-                            ar.edu.unju.escmi.tp5.dominio.DetalleFactura detalle = new DetalleFactura(cantidadVenta, productoVendido);
-
-                            //agregar a la factura
-                            factura.agregarDetalles(detalle);
-
-                            //guardar factura en la coleccion
-                            CollectionFactura.guardarFactura(factura);
-                            //actualizar stock del producto
-                            productoVendido.productosComprados(cantidadVenta);
-                            System.out.println("Venta realizada exitosamente por el empleado: " + vendedor.getNombre());
-                            System.out.println("Detalle de la venta:");
-                            System.out.println(detalle.toString());
-                            }
-                    }*/
                     break;
 
                 case 3:

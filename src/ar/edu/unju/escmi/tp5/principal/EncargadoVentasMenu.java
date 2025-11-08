@@ -1,5 +1,6 @@
 package ar.edu.unju.escmi.tp5.principal;
 
+import ar.edu.unju.escmi.tp5.collections.CollectionFactura;
 
 public class EncargadoVentasMenu {
     public static void mostrarMenu(java.util.Scanner scanner) {
@@ -24,8 +25,15 @@ public class EncargadoVentasMenu {
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Opcion de Mostrar las ventas seleccionada.");
-                    System.out.println("Las ventas realizadas son: " + ar.edu.unju.escmi.tp5.collections.CollectionFactura.getFacturas());
+                    System.out.println("LISTADO DE TODAS LAS VENTAS");
+                    if (CollectionFactura.getFacturas().isEmpty()){
+                        System.out.println("No hay ventas registradas. ");
+                    } else {
+                        for (ar.edu.unju.escmi.tp5.dominio.EncabezadoFactura factura : CollectionFactura.getFacturas()) {
+                            System.out.println(factura);
+                        }
+                    }
+
                     break;
 
                 case 2:

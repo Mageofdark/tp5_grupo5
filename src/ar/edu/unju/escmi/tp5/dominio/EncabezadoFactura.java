@@ -62,8 +62,5 @@ public class EncabezadoFactura {
         this.total = total;
     }
 
-    // Método futuro (placeholder)
-    public static EncabezadoFactura buscarFactura(int numero) {
-        throw new UnsupportedOperationException("Método 'buscarFactura' no implementado");
-    }
+
 }
