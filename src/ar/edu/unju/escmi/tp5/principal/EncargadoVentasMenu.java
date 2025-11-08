@@ -30,7 +30,9 @@ public class EncargadoVentasMenu {
                         System.out.println("No hay ventas registradas. ");
                     } else {
                         for (ar.edu.unju.escmi.tp5.dominio.EncabezadoFactura factura : CollectionFactura.getFacturas()) {
-                            System.out.println(factura);
+                            System.out.println("Factura N° " + factura.getNumero() + " | Fecha: " + factura.getFecha() +
+                                    " | Cliente: " + factura.getCliente().getNombre() + " " + factura.getCliente().getApellido() +
+                                    " | Total: $" + factura.getTotal());
                         }
                     }
 
