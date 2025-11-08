@@ -1,5 +1,6 @@
 package ar.edu.unju.escmi.tp5.principal;
 
+import ar.edu.unju.escmi.tp5.dominio.EncabezadoFactura;
 
 public class ClienteMenu {
     public static void mostrarMenu(java.util.Scanner scanner) {
@@ -24,14 +25,19 @@ public class ClienteMenu {
                 case 1:
                     System.out.println("Ingrese numero de factura a buscar: ");
                     int numeroFactura = scanner.nextInt();
-                    System.out.println("Buscando factura numero: " + numeroFactura);
-                    if (ar.edu.unju.escmi.tp5.collections.CollectionFactura.buscarFactura(numeroFactura) != null) {
-                        System.out.println("Factura encontrada: " + ar.edu.unju.escmi.tp5.collections.CollectionFactura.buscarFactura(numeroFactura));
+                    
+                    EncabezadoFactura facturaEncontrada = ar.edu.unju.escmi.tp5.collections.CollectionFactura.buscarFactura(numeroFactura);
+                    if (facturaEncontrada == null){
+                        System.out.println("no existe factura con ese numero.");
                     } else {
-                        System.out.println("Factura no encontrada.");
+                        System.out.println("Factura N° " + facturaEncontrada.getNumero());
+                        System.out.println("Fecha: " + facturaEncontrada.getFecha());
+                        System.out.println("Cliente: " + facturaEncontrada.getCliente().getNombre());
+                        for (ar.edu.unju.escmi.tp5.dominio.DetalleFactura detalle : facturaEncontrada.getDetalles()){
+                            System.out.println(" - Producto: " + detalle.getProducto().getNombreProducto() + ", Cantidad: " + detalle.getCantidad() + ", Importe: " + detalle.getImporte());
+                        }
+                        System.out.println("Total: " + facturaEncontrada.getTotal());
                     }
-                    break;
-
                 case 2:
                     System.out.println("Volviendo al Menu Principal...");
                     break;

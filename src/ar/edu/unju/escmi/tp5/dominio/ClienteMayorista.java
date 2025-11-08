@@ -40,7 +40,7 @@ public class ClienteMayorista extends Cliente {
 
     @Override
     public ar.edu.unju.escmi.tp5.dominio.EncabezadoFactura buscarFactura(int numero) {
-        return ar.edu.unju.escmi.tp5.dominio.EncabezadoFactura.buscarFactura(numero);
+        return ar.edu.unju.escmi.tp5.collections.CollectionFactura.buscarFactura(numero);
     }
 
     @Override
