@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CollectionEmpleado {
-    public static List<Empleado> empleados = new ArrayList<>();
+     public static List<Empleado> empleados = new ArrayList<>();
 
     // La precarga de los empleados
     static {
