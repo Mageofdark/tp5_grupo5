@@ -16,7 +16,7 @@ public abstract class Cliente {
     }
 
      // metodo abstracto para cada subclase implementa su lógica de compra
-    public abstract Factura comprar(List<Producto> productos, List<Integer> cantidades);
+    public abstract EncabezadoFactura comprar(List<Producto> productos, List<Integer> cantidades);
 
     // Buscar factura por numero (delegar a CollectionFactura)
     public abstract ar.edu.unju.escmi.tp5.dominio.EncabezadoFactura buscarFactura(int numero);
